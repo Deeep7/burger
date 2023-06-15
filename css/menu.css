@@ -1,0 +1,141 @@
+:root {
+  --menu-speed: 0.75;
+}
+#checkbox {
+  position: absolute;
+  top: 4%;
+  right: 12%;
+  z-index: 1;
+  display: flex;
+}
+#checkbox .check-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+#checkbox #hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  height: 50px;
+  width: 50px;
+  background: var(--primary-color);
+}
+
+#checkbox #hamburger div {
+  position: relative;
+  display: flex;
+  flex: none;
+  width: 70%;
+  height: 2px;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+#hamburger div:before,
+#hamburger div:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+  z-index: 1;
+}
+#hamburger div:after {
+  top: 10px;
+}
+
+#checkbox .check-box:checked + #hamburger div {
+  transform: rotate(225deg);
+  transition: all 0.5s ease-in-out;
+}
+#checkbox .check-box:checked + #hamburger div:before {
+  top: 0 !important;
+  transform: rotate(-90deg);
+}
+
+#checkbox .check-box:checked + #hamburger div:after {
+  top: 0 !important;
+  transform: rotate(-90deg);
+}
+
+#checkbox .check-box:checked:hover + #hamburger > div {
+  transform: rotate(90deg);
+}
+
+.menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 54%;
+  width: 54%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.menu > div {
+  background-color: #8b4016b0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+}
+
+.menu div ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 16%;
+  right: 0px;
+}
+.menu div ul li {
+  list-style: none;
+  padding: 30px;
+  font-weight: bold;
+}
+
+.menu div ul li a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+}
+
+a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.check-box:checked ~ .menu {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+.check-box:checked ~ .menu > div {
+  transform: scale(1);
+}
+
+/* .check-box:checked ~ .menu div div {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+} */
