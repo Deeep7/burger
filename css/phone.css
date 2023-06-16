@@ -323,10 +323,11 @@ body {
 }
 
 .contact-btn {
-  top: 100%;
-  left: 24%;
-  font-size: 1rem;
-  padding: 0.7rem 3.5rem;
+      top: 100%;
+    left: 23%;
+    right: 28%;
+    font-size: 1rem;
+    padding: 0.7rem 3.5rem;
 }
 
 #end::before {
